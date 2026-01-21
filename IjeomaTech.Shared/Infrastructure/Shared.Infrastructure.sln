@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11408.102 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Infrastructure", "Shared.Infrastructure.csproj", "{5C1B0B72-3CD2-1F95-DD57-05024FE30167}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C1B0B72-3CD2-1F95-DD57-05024FE30167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1B0B72-3CD2-1F95-DD57-05024FE30167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1B0B72-3CD2-1F95-DD57-05024FE30167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1B0B72-3CD2-1F95-DD57-05024FE30167}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB5D187F-64CF-4C84-9E64-81237DA669E5}
+	EndGlobalSection
+EndGlobal

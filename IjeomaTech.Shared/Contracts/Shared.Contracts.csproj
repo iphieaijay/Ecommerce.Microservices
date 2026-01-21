@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <!-- NuGet metadata -->
+	  <PackageId>GigTech.Shared.Contracts</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Ijeoma Enem</Authors>
+	  <Company>IjeomaTech</Company>
+	  <Description>Shared infrastructure utilities for .NET microservices</Description>
+	  <PackageTags>microservices;logging;correlation;middleware</PackageTags>
+	  <RepositoryUrl>https://github.com/your-org/shared</RepositoryUrl>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
+  </ItemGroup>
+
+</Project>
