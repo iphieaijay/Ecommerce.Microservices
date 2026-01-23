@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using ProductService.Infrastructure.Event;
+using ProductService.Infrastructure.Event.EventBus;
 using ProductService.Infrastructure.Persistence;
 
 namespace ProductService.Feature.UpdateStock

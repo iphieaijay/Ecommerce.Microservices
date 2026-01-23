@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using ProductService.Feature.CreateProduct;
 using ProductService.Domain.Entities;
 using ProductService.Infrastructure.Persistence;
-using ProductService.Infrastructure.Event;
 using ProductService.Feature.GetProduct;
+using ProductService.Infrastructure.Event.EventBus;
 
 namespace ProductService.Features.CreateProduct;
 public class CreateProductHandler : IRequestHandler<CreateProductCommand, CreateProductResponse>

@@ -1,6 +1,5 @@
-﻿namespace AuthService.API.Features.ConfirmUserEmail
+﻿namespace AuthService.Features.ConfirmUserEmail
 {
-    public record ConfirmUserEmailResponse(string EmailConfirmationResponse);
-        
-    
+    public record ConfirmUserEmailResponse(bool Success,string Message);
+
 }

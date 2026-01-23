@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ProductService.API.Middleware;
 using ProductService.Application.Common.Behaviors;
 using ProductService.Infrastructure.Event;
+using ProductService.Infrastructure.Event.EventBus;
 using ProductService.Infrastructure.Persistence;
 using Serilog;
 

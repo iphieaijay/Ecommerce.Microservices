@@ -1,4 +1,4 @@
-﻿using ProductService.Infrastructure.Event;
+﻿using ProductService.Infrastructure.Event.EventBus;
 
 namespace ProductService.Feature.UpdateStock
 {

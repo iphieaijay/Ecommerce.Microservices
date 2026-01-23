@@ -1,5 +1,6 @@
 using MediatR;
 
-namespace AuthService.API.Features.LoginUser;
+namespace AuthService.Features.LoginUser;
 
-public record LoginUserCommand(string Email, string Password) : IRequest<AuthResponse>;
+public record LoginUserCommand(string EmailOrUsername, string Password, bool RememberMe = false
+) : IRequest<LoginUserResponse>;

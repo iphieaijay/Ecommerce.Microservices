@@ -1,11 +1,10 @@
 ﻿using MediatR;
 
-namespace AuthService.API.Features.LogoutUser
+namespace AuthService.Features.LogoutUser
 {
-    public sealed class LogoutUserCommand : IRequest<string>
-    {
-        public string RefreshToken { get; set; } = null!;
-    }
+    public record LogoutUserCommand(string AccessToken, Guid UserId) : IRequest<LogoutUserResponse>;
 
-   
+
 }
+
+

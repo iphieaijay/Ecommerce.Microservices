@@ -1,11 +1,9 @@
 ﻿using MediatR;
-using Shared.Contracts.Responses;
 
-namespace AuthService.API.Features.ForgotPassword
+
+namespace AuthService.Features.ForgotPassword
 {
-    public sealed class ForgotPasswordCommand : IRequest<string>
-    {
-        public string Email { get; set; } = null!;
-    }
+    public record ForgotPasswordCommand(string Email) : IRequest<ForgotPasswordResponse>;
+
 
 }

@@ -1,8 +1,14 @@
 using MediatR;
 
-namespace AuthService.API.Features.RegisterUser;
+namespace AuthService.Features.RegisterUser;
 
-public record RegisterUserCommand(string Email, string FirstName, 
-    string LastName, string Password,string PhoneNo, string Address, 
-    string Role) : IRequest<string>;
+public record RegisterUserCommand(
+    string Email,
+    string UserName,
+    string Password,
+    string ConfirmPassword,
+    string FirstName,
+    string LastName,string PhoneNo, string Address
+) : IRequest<RegisterUserResponse>;
+
 

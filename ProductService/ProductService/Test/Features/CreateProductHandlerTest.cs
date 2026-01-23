@@ -3,7 +3,7 @@
 namespace ProductService.Test.Features
 {
     using global::ProductService.Features.CreateProduct;
-    using global::ProductService.Infrastructure.Event;
+    using global::ProductService.Infrastructure.Event.EventBus;
     using global::ProductService.Infrastructure.Persistence;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
