@@ -10,18 +10,21 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
-	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
-	  <PackageReference Include="RabbitMQ.Client" Version="10.0.1" />
-	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.2" />
+	  <PackageReference Include="RabbitMQ.Client" Version="7.2.0" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="API\Middleware\" />
-    <Folder Include="Features\" />
-    <Folder Include="Infrastructure\EventBus\" />
+    <Folder Include="Features\Orders\ReserveOrder\" />
   </ItemGroup>
 
 </Project>

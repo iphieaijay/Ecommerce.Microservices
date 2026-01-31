@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NotificationService.AppHost/NotificationService.AppHost.csproj" />
+  <Project Path="NotificationService.ServiceDefaults/NotificationService.ServiceDefaults.csproj" />
+  <Project Path="NotificationService/NotificationService.csproj" />
+</Solution>

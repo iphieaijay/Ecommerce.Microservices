@@ -1,31 +1,22 @@
 ﻿
-    using global::OrderService.Domain.Entities;
-    using Microsoft.EntityFrameworkCore;
-    using OrderService.Domain.Entities;
-    using System.Collections.Generic;
-    using System.Reflection.Emit;
+using OrderService.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using OrderService.Domain.Entities;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
-    namespace OrderService.Infrastructure
+namespace OrderService.Infrastructure.Persistence
     {
         public class OrderDbContext : DbContext
         {
             public OrderDbContext(DbContextOptions<OrderDbContext> options) : base(options) { }
 
-            public DbSet<User> Users { get; set; }
-            public DbSet<Order> Orders { get; set; }
+           public DbSet<Order> Orders { get; set; }
             public DbSet<OrderItem> OrderItems { get; set; }
 
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                 base.OnModelCreating(modelBuilder);
-
-                modelBuilder.Entity<User>(entity =>
-                {
-                    entity.HasKey(e => e.Id);
-                    entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
-                    entity.Property(e => e.PasswordHash).IsRequired();
-                    entity.HasIndex(e => e.Email).IsUnique();
-                });
 
                 modelBuilder.Entity<Order>(entity =>
                 {

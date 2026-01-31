@@ -4,15 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using OrderService.Domain.Entities;
 using OrderService.Domain.Enum;
 using OrderService.Domain.Events;
-using OrderService.Infrastructure;
+using OrderService.Domain.Events.OrderService.Domain.Events;
+using OrderService.Features.Orders.CreateOrder.DTO;
 using OrderService.Infrastructure.EventBus;
+using OrderService.Infrastructure.Persistence;
 using System.Security.Claims;
 
 namespace OrderService.Features.Orders
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     public class OrdersController : ControllerBase
     {
         private readonly OrderDbContext _context;
@@ -265,7 +267,7 @@ namespace OrderService.Features.Orders
                     return BadRequest(new { message = $"Cannot reserve order in {order.Status} status" });
                 }
 
-                var user = await _context.Users.FindAsync(userId);
+                //var user = await _context.Users.FindAsync(userId);
 
                 // Publish OrderReservedEvent
                 var orderReservedEvent = new OrderReservedEvent
@@ -347,10 +349,26 @@ namespace OrderService.Features.Orders
 
         private Guid GetUserId()
         {
+            // Try multiple claim types to ensure compatibility
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value
-                           ?? User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+                           ?? User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
+                           ?? User.FindFirst("sub")?.Value
+                           ?? User.FindFirst("nameid")?.Value;
 
-            return Guid.TryParse(userIdClaim, out var userId) ? userId : Guid.Empty;
+            if (string.IsNullOrWhiteSpace(userIdClaim))
+            {
+                _logger.LogWarning("No user ID claim found in token. Available claims: {Claims}",
+                    string.Join(", ", User.Claims.Select(c => $"{c.Type}:{c.Value}")));
+                return Guid.Empty;
+            }
+
+            if (!Guid.TryParse(userIdClaim, out var userId))
+            {
+                _logger.LogWarning("Invalid user ID format in claim: {UserIdClaim}", userIdClaim);
+                return Guid.Empty;
+            }
+
+            return userId;
         }
 
         private string GenerateOrderNumber()
@@ -359,17 +377,5 @@ namespace OrderService.Features.Orders
         }
     }
 
-    public class CreateOrderRequest
-    {
-        public string ShippingAddress { get; set; } = string.Empty;
-        public List<CreateOrderItemRequest> Items { get; set; } = new();
-    }
-
-    public class CreateOrderItemRequest
-    {
-        public string ProductId { get; set; } = string.Empty;
-        public string ProductName { get; set; } = string.Empty;
-        public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
+    
 }
